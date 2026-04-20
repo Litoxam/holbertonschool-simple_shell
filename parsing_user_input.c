@@ -13,7 +13,6 @@ char **parsing_user_input(char *line)
 {
 	int size_of_token = 80;
 	int i = 0;
-	struct stat st;
 	int len = 0;
 
 	char **tokens = malloc(sizeof(char *) * size_of_token);
