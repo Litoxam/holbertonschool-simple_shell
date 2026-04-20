@@ -4,7 +4,7 @@
  * execute_cmd_line - executes command line given in args
  * @args: pointer to array of char - path to the cmd line to execute
  *
- * Return: int - (0) on success - (1) on fork failure
+ * Return: int - (0) on success - (1) on fork failure - (98) if execve failed
  */
 
 int execute_cmd_line(char **args)
