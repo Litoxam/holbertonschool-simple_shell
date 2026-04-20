@@ -12,14 +12,14 @@ Using keywords to prefix branches and commits messages like:
 - build
 
 <u>examples</u>:\
-branch -> "feat/build-main-header"\
+branch -> "feat/build_main_header"\
 commit -> "docs: adding gitflow chapter to readme"
 
 ### How to push my work ?
 
 In order to make a new feature, fix or documentation I need to make a new branch as explain above. 
 ```bash
-git checkout -b <branch-name>
+git checkout -b <branch_name>
 ```
 
 When work is done I fetch the parent branch (dev) to see there is some change, if there are changes I need to pull and merge.
@@ -27,7 +27,7 @@ When work is done I fetch the parent branch (dev) to see there is some change, i
 git checkout dev
 git fetch
 git pull
-git checkout <working-branch>
+git checkout <working_branch>
 git merge dev
 ```
 This process avoids breaking dev or main branch. So I need to resolve conflict on my working branch before making a PR on GitHub and merge on dev.
