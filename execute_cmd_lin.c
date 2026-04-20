@@ -1,8 +1,8 @@
-#include <main.h>
+#include "main.h"
 
 /**
  * execute_cmd_line - executes command line given in args
- * @cmd_path: pointer to array of char - path to the cmd line to execute
+ * @args: pointer to array of char - path to the cmd line to execute
  *
  * Return: int - (0) on success - (1) on fork failure
  */
@@ -25,6 +25,7 @@ int execute_cmd_line(char **args)
 		exit(98); /* TODO: check error code choice with MAX */
 	} else
 	{
+		/* TODO: use wait status for exit code handling (see task 11) */
 		wait(NULL);
 	}
 
