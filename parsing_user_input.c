@@ -14,6 +14,7 @@ char **parsing_user_input(char *line)
 	int size_of_token = 80;
 	int i = 0;
 	struct stat st;
+	int len = 0;
 
 	char **tokens = malloc(sizeof(char *) * size_of_token);
 
@@ -22,6 +23,10 @@ char **parsing_user_input(char *line)
 		fprintf(stderr, "Allocation failed");
 		exit(EXIT_FAILURE);
 	}
+
+	len = strlen(line);
+	if (len > 0 && line[len - 1] == '\n')
+		line[len - 1] = '\0';
 
 	char *token = strtok(line, " ");
 
