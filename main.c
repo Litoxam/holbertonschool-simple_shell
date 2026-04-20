@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stddef.h>
-
+#include "main.h"
 
 /**
  * main - entry point
