@@ -15,7 +15,6 @@
 extern char **environ;
 
 /*prototypes*/
-int main(int argc, char **argv);
 char **parsing_user_input(char *line);
 int check_if_command_exists(char *arg);
 int execute_cmd_line(char **args);

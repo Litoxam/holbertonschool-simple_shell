@@ -10,13 +10,15 @@
 
 int main(int argc, char **argv)
 {
-
-	(void)argc;
-	char *line = NULL;
 	char **args;
 	size_t n = 0;
 	ssize_t user_input;
 	int checker;
+	
+	char *line = NULL;
+	/** TODO: check if we need this args argc and argv because getline is used*/
+	(void)argc;
+	(void)argv;
 
 	printf("<3 ");
 
