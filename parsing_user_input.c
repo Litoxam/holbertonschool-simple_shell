@@ -40,6 +40,12 @@ char **parsing_user_input(char *line)
 		tokens[i] = token;
 		i++;
 		token = strtok(NULL, " ");
+
+		if (i >= size_of_token) /*if the buffer isn't big enough, realloc*/
+		{
+			size_of_token += 80;
+			tokens = realloc(tokens, size_of_token * sizeof(char *));
+		}
 	}
 	tokens[i] = NULL;
 	return (tokens);
