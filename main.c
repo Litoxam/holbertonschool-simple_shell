@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stddef.h>
+#include "main.h"
 
 
 /**
@@ -16,19 +17,31 @@ int main(int argc, char **argv)
 {
 
 	(void)argc;
-	char *buffer = NULL;
+	char *line = NULL;
+	char **args;
 	size_t n = 0;
 	ssize_t user_input;
+	int checker;
 
 	printf("<3 ");
 
-	while (user_input = getline(&buffer, &n, stdin) != -1)
+	while (user_input = getline(&line, &n, stdin) != -1)
 	{
 
 		printf("<3 ");
+		args = parsing_user_input(line);
+		checker = check_if_command_exists(*args)
+		if (checker == 0)
+			//exec function
+		else
+			{
+				printf("Command doesn't exist")
+				break;
+			}
 
 	}
-
+	free(line);
+	free(args)
 	return (0);
 
 }
