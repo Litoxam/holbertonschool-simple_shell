@@ -12,8 +12,10 @@ char **parsing_user_input(char *line)
 	int size_of_token = 80;
 	int i = 0;
 	int len = 0;
+	char *token;
+	char **tokens;
 
-	char **tokens = malloc(sizeof(char *) * size_of_token);
+	tokens = malloc(sizeof(char *) * size_of_token);
 
 	if (tokens == NULL)
 	{
@@ -25,7 +27,7 @@ char **parsing_user_input(char *line)
 	if (len > 0 && line[len - 1] == '\n')
 		line[len - 1] = '\0';
 
-	char *token = strtok(line, " ");
+	token = strtok(line, " ");
 
 	if (token == NULL)
 	{
