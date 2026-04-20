@@ -3,3 +3,6 @@
 
 # Vscode config
 .vscode
+
+# Build files
+a.out
