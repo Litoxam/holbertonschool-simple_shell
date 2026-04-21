@@ -43,6 +43,7 @@ int main(void)
 			{
 				args[0] = path;
 				execute_cmd_line(args);
+				free(path);
 			}
 			else
 				printf("Command doesn't exist\n");
