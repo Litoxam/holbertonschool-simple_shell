@@ -16,7 +16,7 @@ char *get_cmd_path(char *arg)
 	struct stat st;
 
 
-	env = getenv("PATH");
+	env = _getenv("PATH");
 	env_copy = strdup(env);
 	dir = strtok(env_copy, ":");
 
