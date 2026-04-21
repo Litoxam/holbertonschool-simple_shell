@@ -1,0 +1,67 @@
+.TH HSH 1 "April 21, 2026"
+.SH NAME
+hsh \- a simple command interpreter
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH DESCRIPTION
+.B hsh
+is a simplified implementation of a UNIX command interpreter. It allows the execution of system commands, and basic stream manipulation.
+
+The shell displays a prompt and waits for the user to input a command. Then, it searches for the executable in the paths defined by the PATH variable or via the provided relative/absolute path.
+
+The prompt used in this shell is "<3"
+
+.SH FEATURES
+.TP
+.B Built-in commands
+Handles native commands such as
+.B 'exit'
+, and
+.B 'env'.
+.TP
+.B Parsing
+Parses the output of the user and send the command to the execution part.
+.TP
+.B Execution
+Launches programs using fork and execve.
+
+.SH EXAMPLES
+.PP
+.I Launch the shell interactively:
+.RS
+.nf
+<3 ./hsh
+.fi
+.RE
+
+.PP
+.I Execute a simple command:
+.RS
+.nf
+<3 /bin/ls
+.fi
+.RE
+
+.PP
+.I Execute a command found in the PATH, with or without arguments:
+.RS
+.nf
+<3 ls -l
+.fi
+.RE
+
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+Command doesn't exist.
+
+.SH AUTHOR
+Guillaume VAUDET & Maxime BERNIER
+
+.SH SEE ALSO
+getline(3), sh(1), bash(1), execve(2), fork(2), wait(2), strtok(3)
