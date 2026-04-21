@@ -11,13 +11,13 @@ int check_builtins(char **args)
 {
 	int i;
 
-	i = 0;
-
+	
 	builtin_t array_of_builtins[] = {
 		{"exit", handle_exit},
 		{NULL, NULL}
 	};
-
+	
+	i = 0;
 	while (array_of_builtins[i].name != NULL && array_of_builtins[i].f != NULL)
 	{
 		if (strcmp(array_of_builtins[i].name, args[0]) == 0)
