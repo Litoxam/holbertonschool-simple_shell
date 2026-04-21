@@ -13,10 +13,12 @@ char *get_cmd_path(char *arg)
 	char *env_copy;
 	char *dir;
 	char *full_path;
+	struct stat st;
+
 
 	env = getenv("PATH");
 	env_copy = strdup(env);
-	dir = strtok(path_copy, ":");
+	dir = strtok(env_copy, ":");
 
 	while (dir != NULL)
 	{
