@@ -24,8 +24,16 @@ int main(void)
 		args = parsing_user_input(line);
 
 		if (args == NULL || args[0] == NULL)
+		{
+			free(args);
 			continue; /*if the parsing fails or if input is empty*/
+		}
 
+		if (check_builtins(args) != -1)
+		{
+			free(args);
+			continue;
+		}
 		checker = check_if_command_exists(args[0]);
 		if (checker == 1)
 		{
