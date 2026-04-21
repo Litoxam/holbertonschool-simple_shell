@@ -35,7 +35,6 @@ int main(void)
 
 void process_cmd(char **args)
 {
-	int checker;
 	char *path;
 
 	if (check_builtins(args) != -1)
