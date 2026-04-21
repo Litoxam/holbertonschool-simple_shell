@@ -11,8 +11,7 @@ int main(void)
 	size_t n = 0;
 	ssize_t user_input;
 	int checker;
-
-	char *line = NULL;
+	char *path, *line = NULL;
 
 	while (1)
 	{
@@ -27,15 +26,22 @@ int main(void)
 		if (args == NULL || args[0] == NULL)
 			continue; /*if the parsing fails or if input is empty*/
 
-		checker = check_if_command_exists(args[0]);
-		if (checker == 0)
+			checker = check_if_command_exists(args[0]);
+		if (checker == 1)
 		{
-			execute_cmd_line(args);
+			path = get_cmd_path(args[0]);
+
+			if (path != NULL)
+			{
+				args[0] = path;
+				execute_cmd_line(args);
+			}
+			else
+				printf("Command doesn't exist");
 		}
 		else
-		{
-			printf("Command doesn't exist\n");
-		}
+			execute_cmd_line(args);
+
 		free(args);
 	}
 	free(line);
