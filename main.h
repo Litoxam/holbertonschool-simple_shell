@@ -13,6 +13,12 @@
 #include <sys/wait.h>
 
 /* Structures */
+/**
+ * struct builtin_s - Built-ins structure
+ *
+ * @name: name of the command built-in
+ * @f: function pointer handling the command
+ */ 
 typedef struct builtin_s
 {
 	char *name;
