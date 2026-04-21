@@ -17,7 +17,7 @@ commit -> "docs: adding gitflow chapter to readme"
 
 ### How to push my work ?
 
-In order to make a new feature, fix or documentation I need to make a new branch as explain above. 
+In order to make a new feature, fix or documentation I need to make a new branch as explain above.
 ```bash
 git checkout -b <branch_name>
 ```
