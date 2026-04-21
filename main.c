@@ -26,7 +26,7 @@ int main(void)
 		if (args == NULL || args[0] == NULL)
 			continue; /*if the parsing fails or if input is empty*/
 
-			checker = check_if_command_exists(args[0]);
+		checker = check_if_command_exists(args[0]);
 		if (checker == 1)
 		{
 			path = get_cmd_path(args[0]);
@@ -37,7 +37,7 @@ int main(void)
 				execute_cmd_line(args);
 			}
 			else
-				printf("Command doesn't exist");
+				printf("Command doesn't exist\n");
 		}
 		else
 			execute_cmd_line(args);
