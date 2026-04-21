@@ -18,5 +18,6 @@ extern char **environ;
 char **parsing_user_input(char *line);
 int check_if_command_exists(char *arg);
 int execute_cmd_line(char **args);
+char *get_cmd_path(char *arg);
 
 #endif
