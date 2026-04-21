@@ -29,14 +29,15 @@ int is_numeric(char *str)
 int handle_exit(char **args)
 {
 	int exit_code;
-	
+
 	if (!args[1])
 	exit(0);
-	
+
 	if (is_numeric(args[1]) == 0)
 	{
 		/** TODO: Need to handle argv[0] to retrieve the program name */
-		fprintf(stderr, "%s: exit: %s: numeric argument required\n", args[0], args[1]);
+		fprintf(stderr, "%s: exit: %s: numeric argument required\n",
+			args[0], args[1]);
 		return (2);
 	}
 
