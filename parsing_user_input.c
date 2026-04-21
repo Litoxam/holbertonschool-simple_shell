@@ -10,8 +10,7 @@
 char **parsing_user_input(char *line)
 {
 	int size_of_token = 80;
-	int i = 0;
-	int len = 0;
+	int i = 0, len = 0;
 	char *token;
 	char **tokens;
 
@@ -49,6 +48,4 @@ char **parsing_user_input(char *line)
 	}
 	tokens[i] = NULL;
 	return (tokens);
-
 }
-
