@@ -28,5 +28,6 @@ int execute_cmd_line(char **args);
 int handle_exit(char **args);
 int check_builtins(char **args);
 int _atoi(char *s);
+char *get_cmd_path(char *arg);
 
 #endif
