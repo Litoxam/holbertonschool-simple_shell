@@ -29,5 +29,6 @@ int handle_exit(char **args);
 int check_builtins(char **args);
 int _atoi(char *s);
 char *get_cmd_path(char *arg);
+void process_cmd(char **args);
 
 #endif
