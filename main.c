@@ -2,25 +2,17 @@
 
 /**
  * main - entry point
- * @argc: int - number of arguments, set to (void)
- * @argv: pointer of array of char - array of args written in stdin
- *
  * Return: 0 if success
  */
 
-int main(int argc, char **argv)
+int main(void)
 {
 	char **args;
 	size_t n = 0;
 	ssize_t user_input;
 	int checker;
-	
-	char *line = NULL;
-	/** TODO: check if we need this args argc and argv because getline is used*/
-	(void)argc;
-	(void)argv;
 
-	printf("<3 ");
+	char *line = NULL;
 
 	while (1)
 	{
