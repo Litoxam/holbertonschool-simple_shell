@@ -14,6 +14,7 @@ int check_builtins(char **args)
 	
 	builtin_t array_of_builtins[] = {
 		{"exit", handle_exit},
+		{"env", handle_env},
 		{NULL, NULL}
 	};
 	
