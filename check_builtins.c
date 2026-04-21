@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 
 /**
  * check_builtins - checks if cmd passed by the user is a builtins functions

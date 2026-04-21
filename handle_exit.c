@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 
 /**
  * handle_exit - exit function to quit prog
