@@ -3,10 +3,15 @@
 # holbertonschool-simple_shell
 
 ## Description
+
 This project aims to recreate a simplified version of a Unix shell. While not implementing all features, it handles PATH resolution, built-in commands such as `exit` and `env`, and supports both interactive and non-interactive modes.
+
 ## Flowchart
+
 ![flowchart](assets/flowchart_simple_shell.svg)
+
 ## Requirements
+
 For this school project the asking requirements are:
 - OS: Ubuntu 20.04 LTS (development OS)
 - Compiler: `gcc`
@@ -15,15 +20,20 @@ For this school project the asking requirements are:
 
 External ressources:
 - Betty linter: https://github.com/hs-hq/Betty
+
 ## Installation
+
 In order to use this beautiful program you need to clone the repo with git, compile with flag and launch it:
 ```bash
 git clone https://github.com/Litoxam/holbertonschool-simple_shell
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ./hsh
 ```
+
 ## Usage
+
 ### Interactive mode
+
 Interactive mode starts when you launch program and you can interact with it. You can stop it with `exit` or `CTRL+D`.
 ```bash
 ./hsh
@@ -32,7 +42,9 @@ AUTHORS                 _atoi.c                 a.out                   check_bu
 README.md               _getenv.c               assets                  cmd_checker.c           get_cmd_path.c          handle_exit.c           main.c                  parsing_user_input.c
 <3 
 ```
+
 ### Non-Interactive mode
+
 Non-Interactive mode starts when you launch program and you can't interact with. It launches program and stop.
 ```bash
 echo "/bin/ls" | ./hsh
@@ -41,9 +53,11 @@ README.md               _getenv.c               assets                  cmd_chec
 ```
 
 ## Built-ins
+
 We implemented in this project some builtins commands.
 
 ### `exit`
+
 You can stop the simple shell with this command and add a output code.
 ```bash
 <3 exit 98
@@ -53,6 +67,7 @@ julien@ubuntu:~/shell$
 ```
 
 ### `env`
+
 You can print your environment variables with this command.
 ```bash
 julien@ubuntu:~/shell$ ./simple_shell
