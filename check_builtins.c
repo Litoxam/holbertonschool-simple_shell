@@ -14,7 +14,6 @@ int check_builtins(char **args, char *prog, int line_number)
 {
 	int i;
 
-
 	builtin_t array_of_builtins[] = {
 		{"exit", handle_exit},
 		{"env", handle_env},

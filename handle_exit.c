@@ -40,7 +40,6 @@ int handle_exit(char **args, char *prog, int line_number)
 
 	if (is_numeric(args[1], prog) == 0)
 	{
-
 		fprintf(stderr, "%s: %d: exit: Illegal number: %s\n",
 			prog, line_number, args[1]);
 		return (2);
