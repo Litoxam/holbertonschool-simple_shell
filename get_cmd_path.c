@@ -8,7 +8,6 @@
  * Return: nothing
  */
 
-
 void add_arg_to_path(char *full_path, char *dir, char *arg)
 {
 		strcpy(full_path, dir);
@@ -65,5 +64,3 @@ char *get_cmd_path(char *arg)
 	free(env_copy);
 	return (NULL);
 }
-
-
