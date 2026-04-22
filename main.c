@@ -2,14 +2,18 @@
 
 /**
  * main - entry point
+ * @argc: void - number of arguments
+ * @argv: array of strings - arguments of the function
  * Return: 0 if success
  */
 
-int main(void)
+int main(int argc, char **argv)
 {
 	char **args, *line = NULL;
 	size_t n = 0;
 	ssize_t user_input;
+	int line_number;
+	(void)argc;
 
 	while (1)
 	{
@@ -19,10 +23,13 @@ int main(void)
 		user_input = getline(&line, &n, stdin);
 		if (user_input == -1)
 			break;
+
+		line_number++;
+
 		args = parsing_user_input(line);
 
 		if (args != NULL && args[0] != NULL)
-			process_cmd(args);
+			process_cmd(args, argv[0], line_number);
 
 		free(args);
 	}
@@ -33,9 +40,11 @@ int main(void)
 /**
  * process_cmd - Processes the command and arguments
  * @args: array of strings - containing the command and arguments
+ * @prog: name of our programm
+ * @line_number: nb of the actual line
  */
 
-void process_cmd(char **args)
+void process_cmd(char **args, char *prog, int line_number)
 {
 	char *path;
 
@@ -53,7 +62,7 @@ void process_cmd(char **args)
 			free(path);
 		}
 		else
-			printf("Command doesn't exist\n");
+			fprintf(stderr, "%s: %d: %s: not found\n", prog, line_number, args[0]);
 	}
 	else
 		execute_cmd_line(args);

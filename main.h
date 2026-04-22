@@ -36,7 +36,7 @@ int handle_env(char **args);
 int check_builtins(char **args);
 int _atoi(char *s);
 char *get_cmd_path(char *arg);
-void process_cmd(char **args);
+void process_cmd(char **args, char *prog, int line_number);
 char *_getenv(const char *target);
 
 #endif
