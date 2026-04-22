@@ -49,13 +49,13 @@ char *get_cmd_path(char *arg)
 		{
 			add_arg_to_path(full_path, dir, arg);
 
-		if (access(full_path, X_OK) == 0) /*use of access instead of stat*/
-		{
-			free(env_copy);
-			return (full_path);
-		}
+			if (access(full_path, X_OK) == 0) /*use of access instead of stat*/
+			{
+				free(env_copy);
+				return (full_path);
+			}
 
-		free(full_path);
+			free(full_path);
 		}
 		if (end == NULL)
 			break;
