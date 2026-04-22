@@ -9,41 +9,41 @@
 
 char **parsing_user_input(char *line)
 {
-	int i = 0, len = 0, size_of_token = 80;
-	char *ptr;
+	int size_of_token = 80;
+	int i = 0, len = 0;
+	char *token;
 	char **tokens;
 
 	tokens = malloc(sizeof(char *) * size_of_token);
+
 	if (tokens == NULL)
 	{
 		fprintf(stderr, "Allocation failed");
 		exit(EXIT_FAILURE);
 	}
+
 	len = strlen(line);
 	if (len > 0 && line[len - 1] == '\n')
 		line[len - 1] = '\0';
 
-	ptr = line;
-	while (*ptr != '\0')
-	{
-		while (*ptr == ' ' || *ptr == '\t')
-			ptr++;
-		if (*ptr == '\0')
-			break;
+	token = strtok(line, " ");
 
-		tokens[i] = ptr;
+	if (token == NULL)
+	{
+		tokens[0] = NULL;
+		return (tokens);
+	}
+
+	while (token != NULL)
+	{
+		tokens[i] = token;
 		i++;
+		token = strtok(NULL, " ");
+
 		if (i >= size_of_token) /*if the buffer isn't big enough, realloc*/
 		{
 			size_of_token += 80;
 			tokens = realloc(tokens, size_of_token * sizeof(char *));
-		}
-		while (*ptr != ' ' && *ptr != '\t' && *ptr != '\0')
-			ptr++;
-		if (*ptr != '\0')
-		{
-			*ptr = '\0';
-			ptr++;
 		}
 	}
 	tokens[i] = NULL;
