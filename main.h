@@ -22,7 +22,7 @@
 typedef struct builtin_s
 {
 	char *name;
-	int (*f)(char **args);
+	int (*f)(char **args, char *prog, int line_number);
 } builtin_t;
 
 extern char **environ;
@@ -31,9 +31,9 @@ extern char **environ;
 char **parsing_user_input(char *line);
 int check_if_command_exists(char *arg);
 int execute_cmd_line(char **args);
-int handle_exit(char **args);
-int handle_env(char **args);
-int check_builtins(char **args);
+int handle_exit(char **args, char *prog, int line_number);
+int handle_env(char **args, char *prog, int line_number);
+int check_builtins(char **args, char *prog, int line_number);
 int _atoi(char *s);
 char *get_cmd_path(char *arg);
 void process_cmd(char **args, char *prog, int line_number);

@@ -4,10 +4,13 @@
  * check_builtins - checks if cmd passed by the user is a builtins functions
  * and roots to the associated function
  * @args: pointer to array of string - args passed to our shell
+ * @prog: string - name of our program
+ * @line_number: number of the actual line
+ *
  * Return: int - (0) if success through the pointed function -
  * (-1) if don't match
  */
-int check_builtins(char **args)
+int check_builtins(char **args, char *prog, int line_number)
 {
 	int i;
 
@@ -22,7 +25,7 @@ int check_builtins(char **args)
 	while (array_of_builtins[i].name != NULL && array_of_builtins[i].f != NULL)
 	{
 		if (strcmp(array_of_builtins[i].name, args[0]) == 0)
-			return (array_of_builtins[i].f(args));
+			return (array_of_builtins[i].f(args, prog, line_number));
 		i++;
 	}
 

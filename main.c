@@ -48,7 +48,7 @@ void process_cmd(char **args, char *prog, int line_number)
 {
 	char *path;
 
-	if (check_builtins(args) != -1)
+	if (check_builtins(args, prog, line_number) != -1)
 		return;
 
 	if (check_if_command_exists(args[0]) == 1)
