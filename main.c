@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	char **args, *line = NULL;
 	size_t n = 0;
 	ssize_t user_input;
-	int line_number;
+	int line_number = 0;
 	(void)argc;
 
 	while (1)
