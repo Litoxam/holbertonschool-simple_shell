@@ -13,7 +13,9 @@ int main(void)
 
 	while (1)
 	{
-		printf("<3 ");
+		if (isatty(STDIN_FILENO))
+			printf("<3 ");
+
 		user_input = getline(&line, &n, stdin);
 		if (user_input == -1)
 			break;
