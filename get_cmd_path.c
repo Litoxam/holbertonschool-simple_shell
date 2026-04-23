@@ -16,7 +16,10 @@ char *get_cmd_path(char *arg)
 
 
 	env = _getenv("PATH");
-	env_copy = strdup(env);
+	if (!env)
+		return (NULL);
+		
+	env_copy = _strdup(env);
 	dir = strtok(env_copy, ":");
 
 	while (dir != NULL)
