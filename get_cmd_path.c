@@ -13,7 +13,6 @@ char *get_cmd_path(char *arg)
 	char *env_copy;
 	char *dir;
 	char *full_path;
-	struct stat st;
 
 
 	env = _getenv("PATH");
