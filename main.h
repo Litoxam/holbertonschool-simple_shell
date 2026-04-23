@@ -25,6 +25,7 @@ typedef struct builtin_s
 	int (*f)(char **args, char *prog, int line_number);
 } builtin_t;
 
+/* Global variables */
 extern char **environ;
 
 /*prototypes*/
@@ -36,7 +37,7 @@ int handle_env(char **args, char *prog, int line_number);
 int check_builtins(char **args, char *prog, int line_number);
 int _atoi(char *s);
 char *get_cmd_path(char *arg);
-void process_cmd(char **args, char *prog, int line_number);
+int process_cmd(char **args, char *prog, int line_number);
 char *_getenv(const char *target);
 char *_strdup(char *str);
 

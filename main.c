@@ -10,6 +10,7 @@
 int main(int argc, char **argv)
 {
 	char **args, *line = NULL;
+	int cmd_return, code;
 	size_t n = 0;
 	ssize_t user_input;
 	int line_number = 0;
@@ -29,7 +30,17 @@ int main(int argc, char **argv)
 		args = parsing_user_input(line);
 
 		if (args != NULL && args[0] != NULL)
-			process_cmd(args, argv[0], line_number);
+		{
+			cmd_return = process_cmd(args, argv[0], line_number);
+			if (cmd_return == -2)
+			{
+				code = args[1] ? _atoi(args[1]) : 0;
+				free(args);
+				free(line);
+				exit(code);
+			}
+		}
+
 
 		free(args);
 	}
@@ -44,12 +55,14 @@ int main(int argc, char **argv)
  * @line_number: nb of the actual line
  */
 
-void process_cmd(char **args, char *prog, int line_number)
+int process_cmd(char **args, char *prog, int line_number)
 {
 	char *path;
+	int builtins_return;
 
-	if (check_builtins(args, prog, line_number) != -1)
-		return;
+	builtins_return = check_builtins(args, prog, line_number);
+	if (builtins_return != -1)
+		return (builtins_return);
 
 	if (check_if_command_exists(args[0]) == 1)
 	{
@@ -66,4 +79,6 @@ void process_cmd(char **args, char *prog, int line_number)
 	}
 	else
 		execute_cmd_line(args);
+
+	return (0);
 }
