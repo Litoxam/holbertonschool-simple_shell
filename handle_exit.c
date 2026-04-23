@@ -33,10 +33,10 @@ int is_numeric(char *str, char *prog)
 
 int handle_exit(char **args, char *prog, int line_number)
 {
-	int exit_code;
-
 	if (!args[1])
-	exit(0);
+	{
+		return (-2);
+	}
 
 	if (is_numeric(args[1], prog) == 0)
 	{
@@ -45,9 +45,5 @@ int handle_exit(char **args, char *prog, int line_number)
 		return (2);
 	}
 
-	exit_code = _atoi(args[1]);
-
-	exit(exit_code);
-
-	return (0);
+	return (-2);
 }
