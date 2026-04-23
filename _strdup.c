@@ -13,24 +13,24 @@ char *_strdup(char *str)
 
 {
 	char *copy;
-	unsigned int i; /* index pour copier la string */
-	unsigned int length = 0; /* longueur de la string */
+	unsigned int i;
+	unsigned int length = 0;
 
-	if (str == NULL) /*si la chaine est nulle, on retourne NULL*/
+	if (str == NULL)
 		return (NULL);
 
-	while (str[length] != '\0') /*on check la longueur de la string str*/
+	while (str[length] != '\0')
 		length++;
 
-	/* on réserve un espace +1 pour le \0 */
+
 	copy = malloc(sizeof(char) * (length + 1));
 
-	if (copy == NULL) /*on vérifie si on a eu l'espace nécessaire*/
+	if (copy == NULL)
 		return (NULL);
 
-	for (i = 0; i <= length; i++) /*on copie str sur copy*/
+	for (i = 0; i <= length; i++)
 		copy[i] = str[i];
 
-return (copy);/* on retourne copy */
+return (copy);
 
 }
