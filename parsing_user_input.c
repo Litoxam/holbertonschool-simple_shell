@@ -26,9 +26,6 @@ char **parsing_user_input(char *line)
 			ptr++; /*ignores extra spaces*/
 		if (*ptr == '\0') /*end of line*/
 			break;
-
-		tokens[i] = ptr;
-		i++;
 		if (i >= size_of_token) /*if the buffer isn't big enough, realloc*/
 		{
 			size_of_token += 80;
@@ -37,6 +34,9 @@ char **parsing_user_input(char *line)
 				exit(EXIT_FAILURE);
 			tokens = tmp;
 		}
+		tokens[i] = ptr;
+		i++;
+
 		end = strpbrk(ptr, " \t"); /*looks for separator after a token*/
 		if (end) /*if separator found*/
 		{
