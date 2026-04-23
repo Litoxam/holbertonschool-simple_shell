@@ -3,48 +3,48 @@
 /**
  * parsing_user_input - split an input into tokens
  * @line: string - string written by the user
- *
  * Return: array of strings - array of every arguments
  */
 
 char **parsing_user_input(char *line)
 {
-	int size_of_token = 80;
-	int i = 0, len = 0;
-	char *token;
-	char **tokens;
+	int i = 0, len = 0, size_of_token = 80;
+	char *ptr, *end;
+	char **tokens, **tmp;
 
 	tokens = malloc(sizeof(char *) * size_of_token);
-
-	if (tokens == NULL)
-	{
-		fprintf(stderr, "Allocation failed");
-		exit(EXIT_FAILURE);
-	}
-
 	len = strlen(line);
 	if (len > 0 && line[len - 1] == '\n')
 		line[len - 1] = '\0';
 
-	token = strtok(line, " ");
-
-	if (token == NULL)
+	if (tokens == NULL)
+		exit(EXIT_FAILURE);
+	ptr = line;
+	while (*ptr != '\0')
 	{
-		tokens[0] = NULL;
-		return (tokens);
-	}
+		while (*ptr == ' ' || *ptr == '\t')
+			ptr++; /*ignores extra spaces*/
+		if (*ptr == '\0') /*end of line*/
+			break;
 
-	while (token != NULL)
-	{
-		tokens[i] = token;
+		tokens[i] = ptr;
 		i++;
-		token = strtok(NULL, " ");
-
 		if (i >= size_of_token) /*if the buffer isn't big enough, realloc*/
 		{
 			size_of_token += 80;
-			tokens = realloc(tokens, size_of_token * sizeof(char *));
+			tmp = realloc(tokens, size_of_token * sizeof(char *));
+			if (tmp == NULL)
+				exit(EXIT_FAILURE);
+			tokens = tmp;
 		}
+		end = strpbrk(ptr, " \t"); /*looks for separator after a token*/
+		if (end) /*if separator found*/
+		{
+			*end = '\0';
+			ptr = end + 1;
+		}
+		else
+			break;
 	}
 	tokens[i] = NULL;
 	return (tokens);
