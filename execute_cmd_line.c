@@ -10,6 +10,7 @@
 int execute_cmd_line(char **args)
 {
 	pid_t child_pid;
+	int status;
 
 	child_pid = fork();
 
@@ -22,12 +23,13 @@ int execute_cmd_line(char **args)
 	if (child_pid == 0)
 	{
 		execve(args[0], args, environ);
-		exit(98); /* TODO: check error code choice with MAX */
-	} else
-	{
-		/* TODO: use wait status for exit code handling (see task 11) */
-		wait(NULL);
+		exit(EXIT_FAILURE);
 	}
+	waitpid(child_pid, &status, 0);
+	if (WIFEXITED(status))
+		return (WEXITSTATUS(status));
+	if (WIFSIGNALED(status))
+		return (128 + WTERMSIG(status));
 
 	return (0);
 }
