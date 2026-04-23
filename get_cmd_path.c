@@ -23,15 +23,11 @@ void add_arg_to_path(char *full_path, char *dir, char *arg)
 
 char *get_cmd_path(char *arg)
 {
-	char *env, *env_copy, *dir, *full_path;
+	char *env, *env_copy = NULL, *dir, *full_path;
 	char *start, *end;
 
 	env = _getenv("PATH");
-	env_copy = strdup(env);
-
-	if (!env_copy)
-		return (NULL);
-
+	env_copy = _strdup(env);
 	start = env_copy;
 	while (start != NULL)
 	{
