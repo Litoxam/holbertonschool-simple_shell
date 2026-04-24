@@ -10,11 +10,9 @@
 
 int check_if_command_exists(char *arg)
 {
-	struct stat st;
 
-	if (stat(arg, &st) == 0)
+	if (access(arg, X_OK) == 0)
 		return (0);
 	else
 		return (1);
-
 }
