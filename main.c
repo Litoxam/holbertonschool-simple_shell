@@ -54,6 +54,7 @@ int main(int argc, char **argv)
  * @args: array of strings - containing the command and arguments
  * @prog: name of our programm
  * @line_number: nb of the actual line
+ * Return: int - return POSIX value of executed process
  */
 
 int process_cmd(char **args, char *prog, int line_number)
