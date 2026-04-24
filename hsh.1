@@ -21,11 +21,18 @@ Handles native commands such as
 , and
 .B 'env'.
 .TP
+.B Reading
+Reads the output of the user.
+.TP
 .B Parsing
 Parses the output of the user and send the command to the execution part.
 .TP
 .B Execution
 Launches programs using fork and execve.
+.TP
+.B Loop
+Waits for another input to be typed.
+.TP
 
 .SH EXAMPLES
 .PP
@@ -54,11 +61,11 @@ Launches programs using fork and execve.
 
 .SH EXIT STATUS
 .TP
-.B 0
-Success.
-.TP
-.B 1
-Command doesn't exist.
+Errors that are detected by the shell, such as a syntax error, will cause the shell to exit with a non-zero exit status.  
+
+If the shell is not an interactive shell, the execution of  the shell file will be aborted.  
+
+Otherwise the shell will return the exit status of the last command executed, or if the exit builtin is used with a numeric argument, it will return the argument.
 
 .SH AUTHOR
 Guillaume VAUDET & Maxime BERNIER
